@@ -1,1 +1,1 @@
-# Python-Computer-Vision-Guide
+# Poradnik Wizji Komputerowej i Uczenia Maszynowego w języku Python
