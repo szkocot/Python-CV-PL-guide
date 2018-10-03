@@ -1,1 +1,1 @@
-# Poradnik Wizji Komputerowej i Uczenia Maszynowego w języku Python
+# Poradnik Wizji Komputerowej i Elementów Uczenia Maszynowego w języku Python
