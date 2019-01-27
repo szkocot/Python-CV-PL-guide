@@ -2,23 +2,19 @@
 
 source activate cvguide
 
-mkdir -p pdf
-mkdir -p latex
+mkdir -p build
 mkdir -p docs
 cd notebooks
 
 for f in *.ipynb
 do
     jupyter nbconvert --to markdown $f --output-dir ../docs
-    jupyter nbconvert --to latex $f --output-dir ../latex --config convert_config.py
 done
 
-cd ../latex
-for f in *.tex
-do
-    pdflatex $f -output-format pdf
-done
+cd ../docs
+dirlist=`ls ${prefix}*.md` 
 
-mv *pdf ../pdf
-cd ..
-rm -rf latex
+pandoc $dirlist --latex-engine=xelatex --variable fontsize=10pt \
+             --variable documentclass=scrbook --variable lang=polish \
+             -H ../final.tex  -o ../build/book.pdf -f commonmark
+pandoc $dirlist -o ../build/book.epub
