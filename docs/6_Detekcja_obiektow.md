@@ -21,7 +21,7 @@ img = Image.open('../obrazy_testowe/parking_512x512.png')
 imgColArray = cv2.imread('../obrazy_testowe/parking_512x512.png')
 imgGrey = img.convert('L')
 imgArray = np.asarray(imgGrey)
-plt.figure(1, figsize = (7, 7))
+plt.figure(1, figsize = (5, 5))
 plt.imshow(img)
 plt.show()
 ```
@@ -36,7 +36,7 @@ Podobnie jak przy operacjach morfologicznych, tutaj też pracujemy na obrazach b
 ```python
 ret, imgBin = cv2.threshold(imgArray, 200, 255, cv2.THRESH_BINARY)
 
-plt.figure(1, figsize = (7, 7))
+plt.figure(1, figsize = (5, 5))
 plt.imshow(imgBin, cmap = 'gray')
 plt.title('Obraz zbinaryzowany')
 plt.axis('off')
@@ -68,7 +68,7 @@ for line in lines:
         cv2.line(imgColArray, (x1,y1), (x2,y2), (255,0,0), 4)
 
 countLines = np.size(lines, 0)        
-plt.figure(1, figsize = (7, 7))
+plt.figure(1, figsize = (5, 5))
 plt.imshow(imgColArray)
 plt.title(str(countLines) + ' znalezione linie')
 plt.axis('off')
@@ -87,7 +87,7 @@ Innym przykładem zastosowania metod detekcji, może być poszukiwanie obiektów
 ```python
 img = Image.open('../obrazy_testowe/cells_512x512.png')
 imgGrayArray = cv2.imread('../obrazy_testowe/cells_512x512.png', cv2.IMREAD_GRAYSCALE)
-plt.figure(1, figsize = (7, 7))
+plt.figure(1, figsize = (5, 5))
 plt.imshow(img)
 plt.show()
 ```
@@ -102,32 +102,6 @@ Tym razem użyliśmy funkcji *cv2.SimpleBlobDetector()*, dla której najpierw zd
 * pustą macierz na obraz wynikowy, 
 * opis koloru zaznaczenia w przestrzeni RGB (u nas będzie to czerwony),
 * dalsze flagi, których dokładne opisy znajdziesz w dokumentacji.
-
-
-```python
-help(cv2.drawKeypoints)
-```
-
-    Help on built-in function drawKeypoints:
-    
-    drawKeypoints(...)
-        drawKeypoints(image, keypoints, outImage[, color[, flags]]) -> outImage
-        .   @brief Draws keypoints.
-        .   
-        .   @param image Source image.
-        .   @param keypoints Keypoints from the source image.
-        .   @param outImage Output image. Its content depends on the flags value defining what is drawn in the
-        .   output image. See possible flags bit values below.
-        .   @param color Color of keypoints.
-        .   @param flags Flags setting drawing features. Possible flags bit values are defined by
-        .   DrawMatchesFlags. See details above in drawMatches .
-        .   
-        .   @note
-        .   For Python API, flags are modified as cv2.DRAW_MATCHES_FLAGS_DEFAULT,
-        .   cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS, cv2.DRAW_MATCHES_FLAGS_DRAW_OVER_OUTIMG,
-        .   cv2.DRAW_MATCHES_FLAGS_NOT_DRAW_SINGLE_POINTS
-    
-
 
 
 ```python
@@ -149,7 +123,7 @@ imgWithObjects = cv2.drawKeypoints(imgGrayArray, objects, np.array([]), (255, 0,
                                    cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
 countObj = len(objects)
-plt.figure(1, figsize = (7, 7))
+plt.figure(1, figsize = (5, 5))
 plt.imshow(imgWithObjects)
 plt.title(str(countObj) + ' znalezionych obiektów')
 plt.axis('off')
@@ -157,7 +131,7 @@ plt.show()
 ```
 
 
-![png](6_Detekcja_obiektow_files/6_Detekcja_obiektow_15_0.png)
+![png](6_Detekcja_obiektow_files/6_Detekcja_obiektow_14_0.png)
 
 
 Zauważ, że można także filtrować obiekty uwzględniając ich kolor – uda Ci się policzyć jądra komórkowe w ten sposób?
@@ -171,13 +145,13 @@ Często może również istnieć potrzeba odnalezienia okręgów na obrazie – 
 img = Image.open('../obrazy_testowe/signs_512x205.png')
 imgGrayArray = cv2.imread('../obrazy_testowe/signs_512x205.png', cv2.IMREAD_GRAYSCALE)
 ret, imgBin = cv2.threshold(imgGrayArray, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
-plt.figure(1, figsize = (9, 9))
+plt.figure(1, figsize = (7, 7))
 plt.imshow(img)
 plt.show()
 ```
 
 
-![png](6_Detekcja_obiektow_files/6_Detekcja_obiektow_19_0.png)
+![png](6_Detekcja_obiektow_files/6_Detekcja_obiektow_18_0.png)
 
 
 Do detekcji użyto funkcji *cv2.HoughCircles()*, w niej definiujemy:
@@ -202,7 +176,7 @@ for i in circles[0,:]:
     cv2.circle(imgGrayArray, (i[0],i[1]), 2, (0,0,0), 4)
 
 countCirc = np.size(circles[0], 0)
-plt.figure(1, figsize = (9, 9))
+plt.figure(1, figsize = (7, 7))
 plt.imshow(imgGrayArray)
 plt.title(str(countCirc) + ' znalezionych okręgów')
 plt.axis('off')
@@ -210,7 +184,7 @@ plt.show()
 ```
 
 
-![png](6_Detekcja_obiektow_files/6_Detekcja_obiektow_21_0.png)
+![png](6_Detekcja_obiektow_files/6_Detekcja_obiektow_20_0.png)
 
 
 Przykładowa macierz znalezionych okręgów może wyglądać następująco. Każdy wiersz zawiera współrzędne (*x, y*) środka okręgu oraz jego promień.

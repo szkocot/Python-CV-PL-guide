@@ -77,21 +77,18 @@ mean_3_3 = np.array([[1, 1, 1],
 img_mean = np.stack([convolve(np.squeeze(img_np[...,i]),mean_3_3) for i in range(3)],axis=-1)
 ```
 
-    10.2 ms ± 629 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    9.84 ms ± 648 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
 
 
 ```python
 img_mean = np.stack([convolve(np.squeeze(img_np[...,i]),mean_3_3) for i in range(3)],axis=-1)
-plt.imshow(img_mean)
+plt.imshow((img_mean * 255).astype(np.uint8))
 plt.show()
 ```
 
-    Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
 
-
-
-![png](3_Implementacja_Konwolucji_files/3_Implementacja_Konwolucji_13_1.png)
+![png](3_Implementacja_Konwolucji_files/3_Implementacja_Konwolucji_13_0.png)
 
 
 
@@ -112,7 +109,7 @@ plt.show()
 %timeit cv2.filter2D(img_np,-1,mean_3_3)
 ```
 
-    2.6 ms ± 165 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    2.67 ms ± 191 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
 
 * **jak zrobić to własnoręcznie z użyciem pętli**
@@ -131,7 +128,7 @@ for i in range(1,img_mean_fl.shape[0]-1):
             img_mean_fl[i,j,k] = val
 ```
 
-    3.51 s ± 227 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    3.39 s ± 73.3 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 
@@ -192,6 +189,6 @@ def wolna_funkcja_duzo_petli(img_mean_fl):
 %time img_mean_fl = wolna_funkcja_duzo_petli(img_mean_fl)
 ```
 
-    CPU times: user 160 ms, sys: 36.9 ms, total: 197 ms
-    Wall time: 146 ms
+    CPU times: user 139 ms, sys: 3.54 ms, total: 143 ms
+    Wall time: 142 ms
 
