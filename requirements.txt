@@ -3,5 +3,6 @@ numpy
 pillow
 matplotlib
 tqdm
-opencv-python
+opencv-python<4
 scipy
+numba

@@ -1,7 +1,7 @@
 
 # Początki: odczyt i zapis obrazu
 
-#### Aby móc przetwarzać obraz, najpierw należy wprowadzić go do środowiska. W zależności od użytej biblioteki, polecenie będzie inne, dlatego zebraliśmy je w jednym miejscu. 
+**Aby móc przetwarzać obraz, najpierw należy wprowadzić go do środowiska. W zależności od użytej biblioteki, polecenie będzie inne, dlatego zebraliśmy je w jednym miejscu.**
 
 Pamiętaj, by na początku załadować wymagane pakiety. Warto od razu nadać im własne, krótsze nazwy, ponieważ używając danej funkcji, należy wskazać, z&nbsp;jakiej biblioteki ona pochodzi. 
 
@@ -22,7 +22,7 @@ import cv2
 
 ```python
 img_pil = Image.open('../obrazy_testowe/lena_512x512.png')
-img_pil
+img_pil.resize((200,200))
 ```
 
 
@@ -52,10 +52,13 @@ Biblioteka ta działa podobnie jak Matlab; znajdziemy w niej też funkcje _imrea
 
 ```python
 img_cv2 = cv2.imread('../obrazy_testowe/lena_512x512.png')
-cv2.imshow('image',img_cv2)
-cv2.waitKey(0)
-cv2.destroyAllWindows()  #tu wynik pojawia się w nowym oknie
+plt.imshow(img_cv2[:,:,::-1])
+plt.show()
 ```
+
+
+![png](2_CV_Wstep_files/2_CV_Wstep_12_0.png)
+
 
 ### Tak na prawdę wszystkie te biblioteki realizują to samo.
 
@@ -98,7 +101,7 @@ img_pil.resize((300,100))
 
 
 ```python
-img_pil.rotate(11)
+img_pil.rotate(11).resize((200,200))
 ```
 
 
@@ -112,7 +115,7 @@ img_pil.rotate(11)
 
 
 ```python
-img_pil.crop((11,11,300,300))
+img_pil.crop((11,11,300,300)).resize((200,200))
 ```
 
 
@@ -122,7 +125,7 @@ img_pil.crop((11,11,300,300))
 
 
 
-#### Opencv też ma wiele ciekawych funkcjonalności
+**Opencv też ma wiele ciekawych funkcjonalności**
 
 A część z nich poznasz w kolejnych rozdziałach, bo głównie na tej bibliotece oparty jest ten poradnik.
 

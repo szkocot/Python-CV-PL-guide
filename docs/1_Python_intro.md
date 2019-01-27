@@ -1,9 +1,9 @@
 
-### Cześć! Skoro tutaj trafiłeś, to najprawdopodobniej należysz do jednej z dwóch grup: albo zastanawiasz się, w jaki sposób można przetwarzać obrazy cyfrowe, albo: co jeszcze można zrobić w Pythonie? Mamy nadzieję, że w&nbsp;naszym poradniku znajdziesz odpowiedź. A nawet jeśli wpadłeś na niego zupełnie przypadkowo, to i tak lektura może okazać się całkiem interesująca ;)
-
-#### Poniższy przewodnik jest wynikiem pracy trzech studentów w ramach projektu zaliczeniowego z przedmiotu związanego z cyfrowym przetwarzaniem obrazów. Mamy nadzieję, że zagadnienia w nim przedstawione, zachęcą Cię do dalszego rozwoju w tym kierunku :) 
-
 # Wstęp
+
+**Cześć! Skoro tutaj trafiłeś, to najprawdopodobniej należysz do jednej z dwóch grup: albo zastanawiasz się, w jaki sposób można przetwarzać obrazy cyfrowe, albo: co jeszcze można zrobić w Pythonie? Mamy nadzieję, że w&nbsp;naszym poradniku znajdziesz odpowiedź. A nawet jeśli wpadłeś na niego zupełnie przypadkowo, to i tak lektura może okazać się całkiem interesująca ;)**
+
+**Poniższy przewodnik jest wynikiem pracy trzech studentów w ramach projektu zaliczeniowego z przedmiotu związanego z cyfrowym przetwarzaniem obrazów. Mamy nadzieję, że zagadnienia w nim przedstawione, zachęcą Cię do dalszego rozwoju w tym kierunku :)**
 
 ## Dlaczego Python?
 
@@ -91,7 +91,7 @@ with urllib.request.urlopen('http://files.catwell.info/misc/mirror/zen-of-python
         print(line.decode("utf-8"))
 ```
 
-    0it [00:00, ?it/s]
+    21it [00:00, 35203.99it/s]
 
     The Zen of Python, by Tim Peters
     
@@ -133,15 +133,11 @@ with urllib.request.urlopen('http://files.catwell.info/misc/mirror/zen-of-python
     
     If the implementation is easy to explain, it may be a good idea.
     
-
-
-    20it [00:00, 199.99it/s]
-
     Namespaces are one honking great idea -- let's do more of those!
     
 
 
-    21it [00:00, 184.20it/s]
+    
 
 
 Jest to znane Zem of Python. Możemy też uzyskać je poprzez użycie komendy *import this*.
@@ -157,13 +153,13 @@ Wykorzystaliśmy tutaj tzw. *list comprehension*, które umożliwia uzyskanie li
 
 ## Instalacja bibliotek
 
-###### Jak wspomnieliśmy, Python posiada wiele bibliotek dedykowanych do różnych celów.  Aby móc z nich skorzystać, należy je najpierw aktywować poleceniem <font color= green>import </font>. Część podstawowych modułów jest wbudowana, inne trzeba zainstalować. Istnieje wiele sposobów, by to zrobić, oto przykładowe:
+**Jak wspomnieliśmy, Python posiada wiele bibliotek dedykowanych do różnych celów.  Aby móc z nich skorzystać, należy je najpierw aktywować poleceniem <font color= green>import </font>. Część podstawowych modułów jest wbudowana, inne trzeba zainstalować. Istnieje wiele sposobów, by to zrobić, oto przykładowe:**
 
 * pojedynczo z poziomu konsoli
 
 
 ```python
-! pip install pandas
+! pip install pandas -q
 ```
 
 * "hurtowo" wykorzystując plik requirements.txt, który jest najprostszą metodą przechowywania niezbędnych paczek dla danego projektu (tutaj widoczne są biblioteki wykorzystywane przez nas)
@@ -185,12 +181,16 @@ with open('../requirements.txt','r') as f:
     
     tqdm
     
-    opencv-python
+    opencv-python<4
+    
+    scipy
+    
+    numba
 
 
 
 ```python
-! pip install -r ../requirements.txt
+! pip install -r ../requirements.txt -q
 ```
 
-###### Resztę potrzebnych komend poznasz w kolejnych rozdziałach poradnika. To jak, zaczynamy?
+**Resztę potrzebnych komend poznasz w kolejnych rozdziałach poradnika. To jak, zaczynamy?**

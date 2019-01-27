@@ -1,9 +1,10 @@
 #!/bin/bash
 
 source activate cvguide
-
-mkdir -p build
-mkdir -p docs
+rm -rf build
+rm -rf docs
+mkdir build
+mkdir docs
 cd notebooks
 
 for f in *.ipynb
