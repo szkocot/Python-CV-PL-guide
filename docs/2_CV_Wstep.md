@@ -64,7 +64,7 @@ plt.show()
 
 Dają nam przy tym wolność wyboru. 
 
-Aby z obiektu PIL.Image uzyskać macierz w postaci SZER***x***WYS***x***RGB, należy przekształcić go do obiektu np.array
+Aby z obiektu PIL.Image uzyskać macierz w postaci SZERxWYSxRGB, należy przekształcić go do obiektu np.array
 
 
 ```python
